@@ -1,42 +1,85 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #8B0000;  /* Merah tua sebagai warna dasar */
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  cursor: none; /* Menyembunyikan kursor default */
+  position: relative; /* Membuat body menjadi kontainer untuk elemen ::before */
+}
+
+/* Warna latar belakang container */
+.linktree-container {
   text-align: center;
+  background-color: #B22222;  /* Merah lebih muda dari merah tua */
+  border-radius: 10px;
+  padding: 40px 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Styling untuk gambar profile */
+.profile-img {
+  width: 120px;  /* Sesuaikan ukuran gambar */
+  height: 120px;
+  border-radius: 50%;  /* Membuat gambar berbentuk lingkaran */
+  margin-bottom: 20px;
+  object-fit: cover;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Judul di atas link */
+.title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: none; /* Menghilangkan efek cahaya pada teks */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Pengaturan untuk link */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Agar link berada di tengah */
 }
 
-.card {
-  padding: 2em;
+.link-item {
+  display: block;
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #B22222;  /* Merah lebih muda dari warna dasar */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2rem;
+  z-index: 1000; /* Pastikan link berada di atas elemen lainnya */
 }
 
-.read-the-docs {
-  color: #888;
+.link-item:hover {
+  background-color: #e74c3c;  /* Merah terang saat hover */
+  transform: scale(1.05); /* Sedikit membesar saat hover */
+}
+
+/* Efek klik pada link */
+.link-item:active {
+  background-color: #ff5733;  /* Merah cerah saat diklik */
+}
+
+/* Kursor mengikuti pergerakan */
+body::before {
+  width: 40px;  /* Ukuran besar saat kursor bergerak */
+  height: 40px; /* Ukuran besar saat kursor bergerak */
+  background: rgba(255, 255, 255, 0.5);  /* Lampu lebih terang */
+}
+
+/* Kursor mengikuti pergerakan */
+body:hover::before {
+  width: 60px;  /* Ukuran besar saat kursor bergerak */
+  height: 60px; /* Ukuran besar saat kursor bergerak */
+  background: rgba(255, 255, 255, 0.7);  /* Lampu lebih terang */
 }
