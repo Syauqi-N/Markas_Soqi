@@ -10,6 +10,19 @@ body {
   overflow: hidden;
   cursor: none; /* Menyembunyikan kursor default */
   position: relative; /* Membuat body menjadi kontainer untuk elemen ::before */
+
+}
+
+/* Kursor dengan efek lampu */
+body::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;  /* Ukuran awal lampu */
+  height: 30px; /* Ukuran awal lampu */
+  pointer-events: none;  /* Tidak mempengaruhi interaksi lainnya */
+  z-index: 999; /* Menjaga posisi kursor agar di atas konten lainnya */
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
 }
 
 /* Warna latar belakang container */
@@ -21,6 +34,7 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
+  cursor: default;
 }
 
 /* Styling untuk gambar profile */
@@ -37,7 +51,6 @@ body {
   color: white;
   font-size: 2.5rem;
   margin-bottom: 30px;
-  text-shadow: none; /* Menghilangkan efek cahaya pada teks */
 }
 
 /* Pengaturan untuk link */
@@ -69,17 +82,13 @@ body {
 .link-item:active {
   background-color: #ff5733;  /* Merah cerah saat diklik */
 }
-
-/* Kursor mengikuti pergerakan */
-body::before {
-  width: 40px;  /* Ukuran besar saat kursor bergerak */
-  height: 40px; /* Ukuran besar saat kursor bergerak */
-  background: rgba(255, 255, 255, 0.5);  /* Lampu lebih terang */
-}
-
-/* Kursor mengikuti pergerakan */
-body:hover::before {
-  width: 60px;  /* Ukuran besar saat kursor bergerak */
-  height: 60px; /* Ukuran besar saat kursor bergerak */
-  background: rgba(255, 255, 255, 0.7);  /* Lampu lebih terang */
-}
+.light-effect {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 30px; /* Initial size */
+  height: 30px; /* Initial size */
+  pointer-events: none; /* Prevent interaction */
+  z-index: 999; /* Ensure it is above other elements */
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+} 
